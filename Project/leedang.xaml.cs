@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace Project
 {
     /// <summary>
-    /// leedang.xaml에 대한 상호 작용 논리
+    /// Leedang.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class leedang : Window
+    public partial class Leedang : Window
     {
-        public leedang()
+        public Leedang()
         {
             InitializeComponent();
         }
 
-        private void AIButton1_Click(object sender, RoutedEventArgs e)
+        private void LeedangButton1_Click(object sender, RoutedEventArgs e)
         {
 
             int usingCnt = 10;
@@ -40,7 +40,7 @@ namespace Project
 
         }
 
-        private void AIButton2_Click(object sender, RoutedEventArgs e)
+        private void LeedangButton2_Click(object sender, RoutedEventArgs e)
         {
             int usingCnt = 20;
             int maxCnt = 20;

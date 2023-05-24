@@ -121,7 +121,22 @@
   <data name="AICenter2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\aicenter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="goonja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\goonja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gwanggaeto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gwanggaeto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jiphyeon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\jiphyeon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leedang" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\leedang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="leedang1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\leedang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newday" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\newday.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

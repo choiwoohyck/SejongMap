@@ -16,3 +16,11 @@ C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\ob
 C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Project.exe
 C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Project.pdb
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Goonja.g.cs
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Goonja.baml
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Saenal.g.cs
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Saenal.baml
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Gwanggaeto.g.cs
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Gwanggaeto.baml
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Jiphyeon.g.cs
+C:\Users\user\Downloads\SejongMap-master\SejongMap-master - 복사본\Project\obj\Debug\Jiphyeon.baml

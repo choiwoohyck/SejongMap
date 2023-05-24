@@ -56,7 +56,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="leedang.xaml">
+    <Page Include="Goonja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gwanggaeto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Jiphyeon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Leedang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,15 +80,31 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="leedang.xaml.cs">
-      <DependentUpon>leedang.xaml</DependentUpon>
+    <Compile Include="Goonja.xaml.cs">
+      <DependentUpon>Goonja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gwanggaeto.xaml.cs">
+      <DependentUpon>Gwanggaeto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Jiphyeon.xaml.cs">
+      <DependentUpon>Jiphyeon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Leedang.xaml.cs">
+      <DependentUpon>Leedang.xaml</DependentUpon>
     </Compile>
     <Compile Include="AIcenter.xaml.cs">
       <DependentUpon>AIcenter.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Saenal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Saenal.xaml.cs">
+      <DependentUpon>Saenal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,9 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\AIcenter.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\line.png" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +142,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AICenter2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\goonja.png" />
+    <Resource Include="Images\newday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gwanggaeto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gwanggaeto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Jiphyeon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
