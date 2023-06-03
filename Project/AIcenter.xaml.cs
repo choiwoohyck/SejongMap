@@ -14,7 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
+
 namespace Project
 {
     /// <summary>
@@ -31,6 +32,60 @@ namespace Project
             {
                 fontList.Add(string.Join(",", font.FamilyNames.Values));
                 Debug.WriteLine(string.Join(",", font.FamilyNames.Values));
+            }
+
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
+                                                                "Uid = root; Pwd = vangogh1!");
+
+            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '대양AI센터' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+                "AND RoomNumber LIKE 'B1%';";
+
+            MyConnection.Open();
+
+            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            object result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt1.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '대양AI센터' " +
+                        "AND RoomNumber LIKE 'B1%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt1.Content = result;
+            }
+            //B1F 버튼 content 작성
+
+            selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '대양AI센터' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+                "AND RoomNumber LIKE 'B2%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt2.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '대양AI센터' " +
+                       "AND RoomNumber LIKE 'B2%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt2.Content = result;
             }
         }
 
@@ -50,23 +105,7 @@ namespace Project
             */
 
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = '172.19.29.101'; Port = 3307; Database = sejongmap; " +
-                                                                "Uid = root; Pwd = vangogh1!");
             
-            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '대양AI센터' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
-                "AND RoomNumber LIKE 'B1%';";
-
-            MyConnection.Open();
-
-            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
-            
-            object result = cmd.ExecuteScalar();
-            
-            if (result != null)
-            {
-                UsingCnt1.Content = result;
-            }
-
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("/AICenterB1F.xaml", UriKind.RelativeOrAbsolute));
 
@@ -86,7 +125,7 @@ namespace Project
                 UsingCnt2.Foreground = new SolidColorBrush(Colors.Green);
             */
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = '172.19.29.101'; Port = 3307; Database = sejongmap; " +
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '대양AI센터' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +

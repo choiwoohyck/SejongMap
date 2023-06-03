@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 namespace Project
 {
     /// <summary>
@@ -40,7 +40,7 @@ namespace Project
                 UsingCnt1.Foreground = new SolidColorBrush(Colors.Green);
             */
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = localhost; Port = 3307; Database = sejongmap; " +
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '새날관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +

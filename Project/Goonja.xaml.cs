@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace Project
 {
@@ -24,6 +24,62 @@ namespace Project
         public Goonja()
         {
             InitializeComponent();
+
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
+                                                                 "Uid = root; Pwd = vangogh1!");
+
+            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '군자관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+                "AND RoomNumber LIKE '1%';";
+
+            MyConnection.Open();
+
+            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            object result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt1.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '군자관' " +
+                        "AND RoomNumber LIKE '1%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt1.Content = result;
+            }
+            //군자관 1층에서 사용가능한 강의실 개수
+            selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '군자관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+               "AND RoomNumber LIKE '3%';";
+
+            //MyConnection.Open();
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt2.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '군자관' " +
+                        "AND RoomNumber LIKE '3%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt2.Content = result;
+            }
+            //군자관 3층에서 사용가능한 강의실 개수
         }
 
         private void GoonjaButton1_Click(object sender, RoutedEventArgs e)
@@ -41,8 +97,8 @@ namespace Project
                 UsingCnt1.Foreground = new SolidColorBrush(Colors.Green);
             */
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = localhost; Port = 3307; Database = sejongmap; " +
-                                                                "Uid = root; Pwd = vangogh1!");
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
+                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '군자관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
                 "AND RoomNumber LIKE '1%';";
@@ -77,8 +133,8 @@ namespace Project
                 UsingCnt2.Foreground = new SolidColorBrush(Colors.Green);
             */
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = localhost; Port = 3307; Database = sejongmap; " +
-                                                                "Uid = root; Pwd = vangogh1!");
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
+                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '군자관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
                 "AND RoomNumber LIKE '3%';";
