@@ -22,8 +22,8 @@ namespace Project
         public Gwanggaeto7F()
         {
             InitializeComponent();
-            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
-                                                             "Uid = root; Pwd = vangogh1!");
+            MySqlConnection MyConnection = new MySqlConnection("Server = 192.168.35.231; Port = 3306; Database = sejongmap; " +
+                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '광개토관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
                 "AND RoomNumber = '719';";

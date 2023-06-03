@@ -24,8 +24,8 @@ namespace Project
         public Leedang()
         {
             InitializeComponent();
-            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
-                                                               "Uid = root; Pwd = vangogh1!");
+            MySqlConnection MyConnection = new MySqlConnection("Server = 192.168.35.231; Port = 3306; Database = sejongmap; " +
+                                                                 "Uid = root; Pwd = vangogh1!");
 
             string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '이당관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
                 "AND RoomNumber LIKE '1%';";
@@ -93,22 +93,7 @@ namespace Project
                 UsingCnt1.Foreground = new SolidColorBrush(Colors.Green);
             */
             //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
-                                                                "Uid = root; Pwd = vangogh1!");
-
-            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '이당관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
-                "AND RoomNumber LIKE '1%';";
-
-            MyConnection.Open();
-
-            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
-
-            object result = cmd.ExecuteScalar();
-
-            if (result != null)
-            {
-                UsingCnt1.Content = result;
-            }
+            
 
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("/Leedang1F.xaml", UriKind.RelativeOrAbsolute));
@@ -116,35 +101,7 @@ namespace Project
 
         private void LeedangButton2_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            int usingCnt = 20;
-            int maxCnt = 20;
-
-            UsingCnt2.Content = usingCnt + " / ";
-            MaxCnt2.Content = maxCnt;
-
-            if (usingCnt >= maxCnt)
-                UsingCnt2.Foreground = new SolidColorBrush(Colors.Red);
-            else
-                UsingCnt2.Foreground = new SolidColorBrush(Colors.Green);
-            */
-            //MySQL연동하여 상호작용
-            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
-                                                                 "Uid = root; Pwd = vangogh1!");
-
-            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '이당관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
-                "AND RoomNumber LIKE '2%';";
-
-            MyConnection.Open();
-
-            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
-
-            object result = cmd.ExecuteScalar();
-
-            if (result != null)
-            {
-                UsingCnt2.Content = result;
-            }
+            
 
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("/Leedang2.xaml", UriKind.RelativeOrAbsolute));
