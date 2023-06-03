@@ -24,6 +24,58 @@ namespace Project
         public Leedang()
         {
             InitializeComponent();
+            MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
+                                                               "Uid = root; Pwd = vangogh1!");
+
+            string selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '이당관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+                "AND RoomNumber LIKE '1%';";
+
+            MyConnection.Open();
+
+            MySqlCommand cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            object result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt1.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '이당관' " +
+                        "AND RoomNumber LIKE '1%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt1.Content = result;
+            }
+
+            selectQuery = "SELECT COUNT(RoomNumber) FROM project WHERE BuildingName = '이당관' AND DayOfWeek = dayofweek(CURDATE()) AND timediff(CURTIME(), StartTime) > 0 AND timediff(EndTime, CURTIME()) > 0 " +
+                "AND RoomNumber LIKE '2%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                UsingCnt2.Content = result + " /";
+            }
+
+            selectQuery = "SELECT COUNT(DISTINCT(RoomNumber)) FROM project WHERE BuildingName = '이당관' " +
+                       "AND RoomNumber LIKE '2%';";
+
+            cmd = new MySqlCommand(selectQuery, MyConnection);
+
+            result = cmd.ExecuteScalar();
+
+            if (result != null)
+            {
+                MaxCnt2.Content = result;
+            }
         }
 
         private void LeedangButton1_Click(object sender, RoutedEventArgs e)
@@ -95,7 +147,7 @@ namespace Project
             }
 
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("/Leedang2F.xaml", UriKind.RelativeOrAbsolute));
+            nav.Navigate(new Uri("/Leedang2.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Project
         public Gwanggaeto()
         {
             InitializeComponent();
-
+            int a = 0;
             MySqlConnection MyConnection = new MySqlConnection("Server = 172.19.29.101; Port = 3306; Database = sejongmap; " +
                                                                 "Uid = root; Pwd = vangogh1!");
 
